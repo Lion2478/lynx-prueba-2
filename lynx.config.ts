@@ -7,4 +7,12 @@ export default defineConfig({
     pluginQRCode(),
     pluginReactLynx(),
   ],
+  server: {
+    port: 8080
+  },
+  source: {
+    define: {
+      'process.env.PORT': JSON.stringify('8080')
+    }
+  }
 })
