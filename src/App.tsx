@@ -1,9 +1,10 @@
-import { QRGenerator } from "./QRGenerator.js";
-import './App.css'
-import arrow from './assets/arrow.png'
-import lynxLogo from './assets/lynx-logo.png'
-import reactLynxLogo from './assets/react-logo.png'
+import { QRGenerator } from "./QRGenerator";
+import './App.css';
 
 export function App() {
-  return <QRGenerator />;
+  return (
+    <view className="app-container">
+      <QRGenerator />
+    </view>
+  );
 }

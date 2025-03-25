@@ -1,16 +1,13 @@
 {
   "compilerOptions": {
     "jsx": "preserve",
-
-    "module": "node16",
-    "moduleResolution": "node16",
-
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "strict": true,
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
-
     "esModuleInterop": true,
-    "skipLibCheck": true,
+    "skipLibCheck": true
   },
-  "exclude": ["dist/"],
+  "exclude": ["dist/"]
 }
