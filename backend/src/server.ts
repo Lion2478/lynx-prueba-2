@@ -190,7 +190,7 @@ app.post('/generate-ticket', (req, res) => {
     fs.writeFileSync(filePath, ticketHtml);
 
     // Devolver URL del ticket
-    const ticketUrl = `http://localhost:${port}/tickets/${fileName}`;
+    const ticketUrl = `${req.protocol}://${req.get('host')}/tickets/${fileName}`;
     res.json({ url: ticketUrl });
   } catch (error) {
     console.error('Error generating ticket:', error);
