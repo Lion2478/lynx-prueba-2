@@ -219,5 +219,7 @@ app.post('/generate-qr', async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+  console.log(`✅ Server running locally at http://localhost:${port}`);
+  console.log(`🌍 Or via Render at https://lynx-prueba-2.onrender.com`);
 });
+

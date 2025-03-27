@@ -19,23 +19,24 @@ export function QRGenerator() {
       };
 
       // Enviar datos del ticket al backend
-      const ticketResponse = await fetch('http://localhost:3001/generate-ticket', {
+      const ticketResponse = await fetch('https://lynx-prueba-2.onrender.com/generate-ticket', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(ticketData),
-      });
+      });ic
 
       const ticketResult = await ticketResponse.json();
       
       if (ticketResult.url) {
         // Generar QR con la URL del ticket
-        const qrResponse = await fetch('http://localhost:3001/generate-qr', {
+        const qrResponse = await fetch('https://lynx-prueba-2.onrender.com/generate-qr', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
+          
           body: JSON.stringify({ text: ticketResult.url }),
         });
 

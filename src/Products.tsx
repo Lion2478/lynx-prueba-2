@@ -46,7 +46,7 @@ export function Products() {
 
   const generateQR = async (product: Product) => {
     try {
-      const response = await fetch('http://localhost:3001/generate-qr', {
+      const response = await fetch('https://lynx-prueba-2.onrender.com/generate-qr', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
