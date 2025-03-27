@@ -8,7 +8,6 @@ export function QRGenerator() {
 
   const generateTicketQR = async () => {
     try {
-      // Primero, generar el ticket
       const ticketData = {
         ticketNumber: "T" + Math.floor(Math.random() * 10000),
         items: [
@@ -18,25 +17,22 @@ export function QRGenerator() {
         ]
       };
 
-      // Enviar datos del ticket al backend
       const ticketResponse = await fetch('https://lynx-prueba-2.onrender.com/generate-ticket', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(ticketData),
-      });ic
+      });
 
       const ticketResult = await ticketResponse.json();
-      
+
       if (ticketResult.url) {
-        // Generar QR con la URL del ticket
         const qrResponse = await fetch('https://lynx-prueba-2.onrender.com/generate-qr', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          
           body: JSON.stringify({ text: ticketResult.url }),
         });
 

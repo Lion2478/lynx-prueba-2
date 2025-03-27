@@ -165,9 +165,11 @@ app.post('/generate-ticket', (req, res) => {
       .replace('{{footerMessage}}', '¡Vuelva pronto!');
 
     const ticketId = ticketData.ticketNumber;
-    generatedTickets[ticketId] = ticketHtml;
+    const fileName = `ticket-${ticketId}.html`;
+    const filePath = path.join(__dirname, '..', 'public', 'tickets', fileName);
+    fs.writeFileSync(filePath, ticketHtml);
 
-    const ticketUrl = `${req.protocol}://${req.get('host')}/ticket/${ticketId}`;
+    const ticketUrl = `${req.protocol}://${req.get('host')}/tickets/${fileName}`;
     res.json({ url: ticketUrl });
 
   } catch (error) {
@@ -175,6 +177,7 @@ app.post('/generate-ticket', (req, res) => {
     res.status(500).json({ error: 'Error generating ticket' });
   }
 });
+
 
 app.get('/ticket/:id', (req, res) => {
   const ticketId = req.params.id;
